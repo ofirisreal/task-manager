@@ -85,7 +85,10 @@ This project is licensed under the MIT License.
 
 ### To connect to the website go to http://localhost:3000/
 
-Picture :
+### Pictures :
+
+
 ![image](https://github.com/user-attachments/assets/267d7efe-336c-4055-b6e4-33704eb85ce4)
 
+![image](https://github.com/user-attachments/assets/01ff15f7-7392-4736-ad82-9cf4dad5fbb7)
 
