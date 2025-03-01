@@ -1,0 +1,167 @@
+אני רוצה לבנות אפליקציית WEB שתפקידה יהיה כיומן משימות 
+משהו דומה לממשק של חברת Monday 
+בפיתוח תתחשב במושג mobile first
+לאחר מכן,לארוז את הפיתוח כ-IMAGE של קונטיינר
+והפעלתו כקונטיינר בתוכנת ה-Docker
+
+נתחיל באפיון:
+Backend - מבוסס מערכת הפעלה Windows עם node.js
+Frontend - יהיה באותו המחשב רק לצורך ריצה, אצטרך שתיתן לי קוד עבורו
+האפליקצייה צריכה להיות מקצועית,  בעלת נראות מעולה.
+האפליקצייה תהיה עבור צוות עובדים , כ2 עובדים ומנהל.
+הצוות מתעסק בנתבים, מתגים, נקודות גישה ושרתים, כמו כן גם מנהל גרסאות עבור כל מוצר.
+בנוסף הצוות מבצע בדיקות Bug וpenetration test עבור כל מוצר ולאחר מכן מעביר את הנתונים ליצרן.
+לאחר מכן הצוות מוציא את הגרסה לעבודה ומבצע בדיקות אצל לקוחות ומקבל מהם פידבקים עבור הגרסאות 
+האפליקצייה צריכה להיות בשפה האנגלית .
+
+
+
+
+נשמע כמו פרויקט מעניין! בוא נתחיל עם אפיון האפליקציה:
+אפיון אפליקציה
+
+    Backend:
+        מערכת הפעלה: Windows
+        טכנולוגיה: Node.js
+        פונקציות עיקריות: ניהול משימות, ניהול גרסאות, בדיקות באגים ו-penetration tests, קבלת פידבקים מלקוחות.
+
+    Frontend:
+        טכנולוגיה: HTML, CSS, JavaScript (React.js)
+        עיצוב: Mobile First
+        נראות: מקצועית ומושכת
+
+    משתמשים:
+        2 עובדים ומנהל
+        תפקידים: ניהול משימות, ניהול גרסאות, בדיקות באגים ו-penetration tests, קבלת פידבקים מלקוחות.
+
+שלב ראשון: יצירת Backend עם Node.js
+
+נתחיל ביצירת פרויקט Node.js בסיסי:
+
+mkdir task-manager
+cd task-manager
+npm init -y
+npm install express mongoose
+
+לאחר מכן, ניצור קובץ server.js:
+
+const express = require('express');
+const mongoose = require('mongoose');
+const app = express();
+const port = 3000;
+
+mongoose.connect('mongodb://localhost:27017/taskmanager', { useNewUrlParser: true, useUnifiedTopology: true });
+
+const taskSchema = new mongoose.Schema({
+  title: String,
+  description: String,
+  status: String,
+  assignedTo: String,
+  version: String,
+  feedback: String
+});
+
+const Task = mongoose.model('Task', taskSchema);
+
+app.use(express.json());
+
+app.get('/tasks', async (req, res) => {
+  const tasks = await Task.find();
+  res.json(tasks);
+});
+
+app.post('/tasks', async (req, res) => {
+  const task = new Task(req.body);
+  await task.save();
+  res.json(task);
+});
+
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}`);
+});
+
+שלב שני: יצירת Frontend עם React.js
+
+ניצור פרויקט React.js:
+
+npx create-react-app task-manager-frontend
+cd task-manager-frontend
+npm start
+
+נעדכן את הקובץ App.js:
+
+import React, { useState, useEffect } from 'react';
+
+function App() {
+  const [tasks, setTasks] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:3000/tasks')
+      .then(response => response.json())
+      .then(data => setTasks(data));
+  }, []);
+
+  return (
+    <div className="App">
+      <h1>Task Manager</h1>
+      <ul>
+        {tasks.map(task => (
+          <li key={task._id}>{task.title}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default App;
+
+שלב שלישי: אריזת האפליקציה כ-IMAGE של קונטיינר והפעלתה ב-Docker
+
+ניצור קובץ Dockerfile עבור ה-Backend:
+
+# Dockerfile for Backend
+FROM node:14
+
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm install
+
+COPY . .
+
+EXPOSE 3000
+CMD ["node", "server.js"]
+
+ניצור קובץ Dockerfile עבור ה-Frontend:
+
+# Dockerfile for Frontend
+FROM node:14
+
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm install
+
+COPY . .
+
+EXPOSE 3000
+CMD ["npm", "start"]
+
+ניצור קובץ docker-compose.yml:
+
+version: '3'
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "3000:3000"
+  frontend:
+    build: ./frontend
+    ports:
+      - "3001:3000"
+
+כעת, נוכל להריץ את הקונטיינרים:
+
+docker-compose up
+
+זהו! יש לך אפליקציה בסיסית לניהול משימות. כמובן, יש עוד הרבה שיפורים שניתן להוסיף, כמו אימות משתמשים, ניהול הרשאות, ועוד. איך זה נשמע עד כה?
