@@ -23,11 +23,11 @@ Backend
 
  1.   Navigate to the backend directory:
 
-    ```bash cd backend
+     cd backend
 
  2.   Install the dependencies:
 
-   ```bash npm install
+    npm install
 
 Running the Application
 Using npm
@@ -35,35 +35,35 @@ Frontend
 
 1. Navigate to the frontend directory:
 
-   ```bash cd task-manager-frontend
+    cd task-manager-frontend
 
  2.   Start the development server:
 
-   ```bash npm start
+    npm start
 
 Backend
 
  1.   Navigate to the backend directory:
 
-   ```bash cd backend
+    cd backend
 
 2.  Start the server:
 
-   ```bash npm start
+    npm start
 
 Using Docker
 
  1.   Navigate to the root directory of the project:
 
-   ```bash cd path/to/project
+    cd path/to/project
 
  2.   Build the Docker containers:
 
-   ```bash docker-compose build
+    docker-compose build
 
  3.   Start the Docker containers:
 
-   ```bash docker-compose up
+    docker-compose up
 
 License
 
@@ -72,16 +72,16 @@ This project is licensed under the MIT License.
 
 ### Step 4: Upload the `README.md` File to GitHub
 1. **Add the `README.md` file to the repository**:
-   ```bash
+   
    git add README.md
 
     Commit the changes:
 
-   ```bash git commit -m "Add README.md"
+    git commit -m "Add README.md"
 
     Push the changes to the remote repository:
 
-  ```bash  git push
+   git push
 
 ### To connect to the website go to http://localhost:3000/###
 
