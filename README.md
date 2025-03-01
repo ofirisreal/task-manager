@@ -83,7 +83,7 @@ This project is licensed under the MIT License.
 
    git push
 
-### To connect to the website go to http://localhost:3000/###
+### To connect to the website go to http://localhost:3000/
 
 Picture :
 ![image](https://github.com/user-attachments/assets/267d7efe-336c-4055-b6e4-33704eb85ce4)
