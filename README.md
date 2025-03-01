@@ -19,7 +19,7 @@ This is a simple task manager application built with React for the frontend and 
 2.   Install the dependencies:
     npm install
 
-Backend
+## Backend
 
  1.   Navigate to the backend directory:
 
@@ -31,7 +31,7 @@ Backend
 
 Running the Application
 Using npm
-Frontend
+## Frontend
 
 1. Navigate to the frontend directory:
 
@@ -41,7 +41,7 @@ Frontend
 
     npm start
 
-Backend
+## Backend
 
  1.   Navigate to the backend directory:
 
@@ -51,7 +51,7 @@ Backend
 
     npm start
 
-Using Docker
+## Using Docker
 
  1.   Navigate to the root directory of the project:
 
