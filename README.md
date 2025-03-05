@@ -70,19 +70,6 @@ License
 This project is licensed under the MIT License.
 
 
-### Step 4: Upload the `README.md` File to GitHub
-1. **Add the `README.md` file to the repository**:
-   
-   git add README.md
-
-    Commit the changes:
-
-    git commit -m "Add README.md"
-
-    Push the changes to the remote repository:
-
-   git push
-
 ### To connect to the website go to http://localhost:3000/
 
 ### Pictures :
