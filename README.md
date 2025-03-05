@@ -17,6 +17,7 @@ This is a simple task manager application built with React for the frontend and 
    cd task-manager-frontend
 
 2.   Install the dependencies:
+     ```bash
     npm install
 
 ## Backend
@@ -34,7 +35,7 @@ Using npm
 ## Frontend
 
 1. Navigate to the frontend directory:
-   
+   ```bash
    cd task-manager-frontend
     
 
@@ -49,9 +50,10 @@ Using npm
     cd backend
 
 2.  Start the server:
-
+```
     npm start
 
+```
 ## Using Docker
 
  1.   Navigate to the root directory of the project:
