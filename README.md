@@ -35,7 +35,7 @@ Using npm
 
 1. Navigate to the frontend directory:
    
-    cd task-manager-frontend
+   cd task-manager-frontend
     
 
  3.   Start the development server:
